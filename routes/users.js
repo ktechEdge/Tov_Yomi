@@ -5,16 +5,18 @@ module.exports = router;
 //     res.render("Users", { pageTitle: "Users" });
 // });
 router.post('/Add', (req, res) => {
-    let firstName = req.body.firstName;
-    let lastName = req.body.lastName;
+    let realName = req.body.realName;
     let userName = req.body.userName;
     let email = req.body.email;
     let password = req.body.password;
+    let lastLoginTime = req.body.lastLoginTime;
+    let totalLoginCnt = req.body.totalLoginCnt;
+    let token = req.body.token;
 
     let q = "INSERT INTO users ";
-        q += "(First_name, Last_name, User_name, Email, Password) ";
+        q += "(real_name,  user_name, email, password, last_login_time, total_login_cnt, token) ";
         q += "VALUES ";
-        q += `('${firstName}','${lastName}','${userName}','${email}','${password}')`;
+        q += `('${realName}','${userName}','${email}','${password}','${lastLoginTime}','${totalLoginCnt}','${token}')`;
 
     console.log(q);
 
@@ -29,7 +31,7 @@ router.post('/Add', (req, res) => {
         });
 });
 router.get("/List", (req, res) => {
-    let q = `SELECT CONCAT(First_name, ' ', Last_name) AS FullName, User_name, Email, Password FROM users`;
+    let q = `SELECT * FROM users`;
     db_pool.query(q, function (err, rows, fields) {
         if (err) {
             res.status(500).json({message: err})
@@ -51,17 +53,15 @@ router.delete("/Delete/:id", (req, res) => {
 });
 router.patch("/Update", (req, res) => {
     let id = req.body.id;
-    let firstName = req.body.firstName;
-    let lastName = req.body.lastName;
+    let realName = req.body.realName;
     let userName = req.body.userName;
     let email = req.body.email;
     let password = req.body.password;
     let q = "UPDATE users SET ";
-        q += `First_name = '${firstName}',`;
-        q += `Last_name = '${lastName}',`;
-        q += `User_name = '${userName}',`;
-        q += `Email = '${email}',`;
-        q += `Password = '${password}'`;
+        q += `real_name = '${realName}',`;
+        q += `user_name = '${userName}',`;
+        q += `email = '${email}',`;
+        q += `password = '${password}'`;
         q += ` WHERE id = '${id}'`;
 
     console.log(q);
