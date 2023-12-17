@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 module.exports = router;
-// router.get("/", (req, res) => {
-//     res.render("Users", { pageTitle: "Users" });
-// });
+router.get("/login", (req, res) => {
+    res.render("login", { pageTitle: "login" });
+});
+router.get("/reg", (req, res) => {
+    res.render("register", { pageTitle: "reg" });
+});
 router.post('/Add', (req, res) => {
     let realName = req.body.realName;
     let userName = req.body.userName;
@@ -25,7 +28,7 @@ router.post('/Add', (req, res) => {
             if (err) {
                 res.status(500).json({message: err});
             } else {
-                res.status(200).json({message: "OK"});
+                res.render("login", { pageTitle: "login" });
             }
 
         });
