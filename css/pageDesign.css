@@ -1,0 +1,24 @@
+*{
+    font-size: xx-large;
+    box-sizing: border-box;
+}
+.wrapper{
+    margin: 0 auto;
+    width: 75%;
+    height: 1200px;
+    background-color: aqua;
+    display: grid;
+    grid-template-rows: 17% 66% 17%;
+}
+header{
+    border: 1px solid black;
+    width: 100%;
+
+}
+.mainSec{
+    border: 1px solid black;
+}
+footer{
+    border: 1px solid black;
+    width: 100%;
+}
