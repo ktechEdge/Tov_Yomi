@@ -10,17 +10,16 @@ footer = document.getElementsByTagName("footer")[0];
 console.log(manuBtn)
 manuBtn.addEventListener("click",()=>{
     console.log(menu.display)
-    if (menu.style.display === "block"){
+    if (menu.style.display === "grid"){
         menu.style.display = "none";
 
     }
     else{
-        menu.style.display = "block";
+        menu.style.display = "grid";
 
     }
 })
 pageWidth.addEventListener("change",()=>{
-    console.log(this)
     if (pageWidth.matches){
         manuBtn.style.display = "block";
         menu.style.display ="none";
@@ -30,7 +29,7 @@ pageWidth.addEventListener("change",()=>{
         footer.style.gridArea = "8/1/-1/-1";
 }else{
         manuBtn.style.display = "none"
-        menu.style.display ="block";
+        menu.style.display ="grid";
         menu.style.gridArea = "1/9/8/-1";
         header.style.gridArea = "1/1/3/9";
         mainSec.style.gridArea = "3/1/8/9";
