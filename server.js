@@ -14,6 +14,8 @@ let db_M = require('./database');
 global.db_pool = db_M.pool;
 app.use(express.json());
 
+const car_rtr = require('./routes/designTest');
+app.use('/test',car_rtr);
 
 app.listen(port, () => {
     console.log(`Now listening on port http://localhost:${port}`);
