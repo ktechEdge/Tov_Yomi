@@ -23,17 +23,13 @@ function screenCheck(){
     if (pageWidth.matches){
         manuBtn.style.display = "block";
         menu.style.display ="none";
-        menu.style.gridArea = "3/9/8/-1";
+        menu.style.gridArea = "3/7/8/-1";
         header.style.gridArea = "1/1/3/-1";
         mainSec.style.gridArea = "3/1/8/-1";
         footer.style.gridArea = "8/1/-1/-1";
     }else{
         manuBtn.style.display = "none"
         menu.style.display ="grid";
-        menu.style.gridArea = "1/9/8/-1";
-        header.style.gridArea = "1/1/3/9";
-        mainSec.style.gridArea = "3/1/8/9";
-        footer.style.gridArea = "8/1/-1/-1";
     }
 }
 
