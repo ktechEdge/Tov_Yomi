@@ -7,9 +7,8 @@ header = document.getElementsByTagName("header")[0],
 mainSec = document.getElementsByTagName("main")[0],
 footer = document.getElementsByTagName("footer")[0];
 
-console.log(manuBtn)
+screenCheck();
 manuBtn.addEventListener("click",()=>{
-    console.log(menu.display)
     if (menu.style.display === "grid"){
         menu.style.display = "none";
 
@@ -19,7 +18,8 @@ manuBtn.addEventListener("click",()=>{
 
     }
 })
-pageWidth.addEventListener("change",()=>{
+pageWidth.addEventListener("change",screenCheck);
+function screenCheck(){
     if (pageWidth.matches){
         manuBtn.style.display = "block";
         menu.style.display ="none";
@@ -27,7 +27,7 @@ pageWidth.addEventListener("change",()=>{
         header.style.gridArea = "1/1/3/-1";
         mainSec.style.gridArea = "3/1/8/-1";
         footer.style.gridArea = "8/1/-1/-1";
-}else{
+    }else{
         manuBtn.style.display = "none"
         menu.style.display ="grid";
         menu.style.gridArea = "1/9/8/-1";
@@ -35,6 +35,6 @@ pageWidth.addEventListener("change",()=>{
         mainSec.style.gridArea = "3/1/8/9";
         footer.style.gridArea = "8/1/-1/-1";
     }
-});
+}
 
 
