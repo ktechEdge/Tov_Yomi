@@ -18,7 +18,7 @@ const car_rtr = require('./routes/designTest');
 app.use('/test',car_rtr);
 
 app.listen(port, () => {
-    console.log(`Now listening on port http://localhost:${port}`);
+    console.log(`Now listening on port http://localhost:${port}/test/`);
 });
 const users =require('./routes/users');
 app.use('/users',users);
